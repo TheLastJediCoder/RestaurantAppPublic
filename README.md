@@ -1,5 +1,5 @@
 # RestaurantAppPublic
-Application with landing page and admin panel for resturant to advertise and manage menu and deals.
+Application with landing page and admin panel for restaurant to advertise and manage menu and deals.
 
 
 # Description
