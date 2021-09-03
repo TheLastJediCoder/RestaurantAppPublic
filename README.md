@@ -5,7 +5,7 @@ Application with landing page and admin panel for restaurant to advertise and ma
 # Description
 Public view of commercial project.
 Its an application developed using Flask and MySQL as backend.
-HTML, CSS, JavaScript and jQuery as frontend(Referred Bootstrap and Google Searches).
+HTML, CSS, JavaScript and jQuery as frontend.
 For image storage used Cloudinary API to upload images.
 
 # Application Funcationality(Public)
