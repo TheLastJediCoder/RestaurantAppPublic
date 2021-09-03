@@ -1,0 +1,125 @@
+{% extends 'base_template.html' %}
+{% block body %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Add Deal Category</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+			<!-- left column -->
+				<div class="col">
+				<!-- general form elements -->
+					<div class="card card-primary">
+					<!-- form start -->
+						<form method="POST" action="{{ '/admin/deal_update' if deal else '/admin/deal_add' }}" enctype="multipart/form-data">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-sm-6">
+									<!-- text input -->
+										<div class="form-group">
+											<label>Deal Name</label>
+											<input type="text" value='{{ deal.deal_name if deal else '' }}' name='deal_name' class="form-control" placeholder="Enter ...">
+										</div>
+										<div class="form-group" style="display:none">
+											<label>Deal Id</label>
+											<input type="text" value='{{ deal.deal_id if deal else '' }}' name='deal_id' class="form-control" placeholder="Enter ...">
+										</div>
+										<div class="form-group">
+											<label>Start Date:</label>
+											<div class="input-group date" id="reservationdate" data-target-input="nearest">
+												<input type="text" value='{{ deal.deal_start_date if deal else '' }}' name='deal_start_date' class="form-control datetimepicker-input" data-target="#reservationdate">
+												<div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+													<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+												</div>
+											</div>
+										</div>
+										<div class="form-group">
+											<label>End Date:</label>
+											<div class="input-group date" id="reservationdate1" data-target-input="nearest">
+												<input type="text" value='{{ deal.deal_end_date if deal else '' }}' name='deal_end_date' class="form-control datetimepicker-input" data-target="#reservationdate1">
+												<div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
+													<div class="input-group-text"><i class="fa fa-calendar"></i></div>
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label>Deal Description</label>
+											<textarea class="form-control" value='{{ deal.deal_description if deal else '' }}' name='deal_description' rows="3" placeholder="Enter ...">{{ deal.deal_description if deal else '' }}</textarea>
+										</div>
+										<div class="form-group">
+											<label for="exampleInputFile">Deal Image</label>
+											<div class="input-group">
+												<div class="custom-file">
+													<input type="file" name='deal_category_image' class="custom-file-input" id="exampleInputFile" accept="image/*">
+													<label class="custom-file-label" for="exampleInputFile">Choose file</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<label>Week Days</label>
+								<div class="form-group">
+									<div class="form-check-inline">
+										<input class="form-check-input" value='Sunday' type="radio" name="deal_week_day" id="flexRadioDefault1">
+										<label class="form-check-label" for="flexRadioDefault1">Sunday</label>
+									</div>
+									<div class="form-check-inline">
+										<input class="form-check-input" value='Monday' type="radio" name="deal_week_day" id="flexRadioDefault1">
+										<label class="form-check-label" for="flexRadioDefault1">Monday</label>
+									</div>
+									<div class="form-check-inline">
+										<input class="form-check-input" value='Tuesday' type="radio" name="deal_week_day" id="flexRadioDefault1">
+										<label class="form-check-label" for="flexRadioDefault1">Tuesday</label>
+									</div>
+									<div class="form-check-inline">
+										<input class="form-check-input" value='Wednesday' type="radio" name="deal_week_day" id="flexRadioDefault1">
+										<label class="form-check-label" for="flexRadioDefault1">Wednesday</label>
+									</div>
+									<div class="form-check-inline">
+										<input class="form-check-input" value='Thursday' type="radio" name="deal_week_day" id="flexRadioDefault1">
+										<label class="form-check-label" for="flexRadioDefault1">Thursday</label>
+									</div>
+									<div class="form-check-inline">
+										<input class="form-check-input" value='Friday' type="radio" name="deal_week_day" id="flexRadioDefault1">
+										<label class="form-check-label" for="flexRadioDefault1">Friday</label>
+									</div>
+									<div class="form-check-inline">
+										<input class="form-check-input" value='Saturday' type="radio" name="deal_week_day" id="flexRadioDefault1">
+										<label class="form-check-label" for="flexRadioDefault1">Saturday</label>
+									</div>
+								</div>
+							</div>
+						<!-- /.card-body -->
+
+							<div class="card-footer">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</form>
+					</div>  
+				</div>
+			<!-- /.card -->
+			</div>
+		<!-- /.col -->
+
+		<!-- /.row -->
+		</div>
+	<!-- /.container-fluid -->
+	</section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock body %}

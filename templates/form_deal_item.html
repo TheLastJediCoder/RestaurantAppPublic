@@ -1,0 +1,97 @@
+{% extends 'base_template.html' %}
+{% block body %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Add Deal Item</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+			<!-- left column -->
+				<div class="col">
+				<!-- general form elements -->
+					<div class="card card-primary">
+					<!-- form start -->
+						<form method="POST" action="{{ '/admin/deal_item_update' if item else '/admin/deal_item_add' }}" enctype="multipart/form-data">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-sm-6">
+									<!-- text input -->
+										<div class="form-group">
+											<label>Menu Category</label>
+											<select class="form-control" name='deal_id'>
+												<option value='-1' selected="selected" disabled="disabled">None</option>
+												{% for id in dealId %}
+													{% if item %}
+													<option value='{{id.deal_id}}' {{ 'selected="selected"' if item.menu_id == id.menu_id else 'class=""' }}>{{id.deal_name}}</option>
+													{% else %}
+													<option value='{{id.deal_id}}'>{{id.deal_name}}</option>
+													{% endif %}
+												{% endfor %}
+											</select>
+										</div>
+										<div class="form-group">
+											<label>Item Name</label>
+											<input type="text" value='{{ item.deal_item_name if item else '' }}' name='deal_item_name' class="form-control" placeholder="Enter ...">
+										</div>
+										<div class="form-group" style="display:none">
+											<label>Item Id</label>
+											<input type="text" value='{{ item.deal_item_id if item else '' }}' name='deal_item_id' class="form-control" placeholder="Enter ...">
+										</div>
+										<div class="form-group">
+											<label>Item Price</label>
+											<input type="number" value='{{ item.deal_item_price if item else '' }}' name='deal_item_price' step=".01" class="form-control" placeholder="Enter ...">
+										</div>
+										<div class="form-group">
+											<label>Item Discount Price</label>
+											<input type="number" value='{{ item.deal_item_discounted_price if item else '' }}' name='deal_item_discounted_price' step=".01" class="form-control" placeholder="Enter ...">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label>Item Description</label>
+											<textarea class="form-control" value='{{ item.deal_item_description if item else '' }}' name='deal_item_description' rows="3" placeholder="Enter ...">{{ item.deal_item_description if item else '' }}</textarea>
+										</div>
+										<div class="form-group">
+											<label for="exampleInputFile">Item Image</label>
+											<div class="input-group">
+												<div class="custom-file">
+													<input type="file" name='deal_item_image' class="custom-file-input" id="exampleInputFile" accept="image/*">
+													<label class="custom-file-label" for="exampleInputFile">Choose file</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						<!-- /.card-body -->
+
+							<div class="card-footer">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</form>
+					</div>  
+				</div>
+			<!-- /.card -->
+			</div>
+		<!-- /.col -->
+
+		<!-- /.row -->
+		</div>
+	<!-- /.container-fluid -->
+	</section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock body %}

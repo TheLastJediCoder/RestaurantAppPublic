@@ -1,0 +1,74 @@
+{% extends 'base_template.html' %}
+{% block body %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Menu Item</h1>
+          </div>
+          <div class="col-sm-6">
+             <a href="/admin/menu_item_add" type="button" class="btn btn-outline-success float-sm-right" role="button" data-bs-toggle="button"><i class="fas fa-plus"></i> New Entry</a>
+       
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-12">
+            <div class="card">
+              <!-- /.card-header -->
+              <div class="card-body">
+                <table id="example1" class="table table-bordered table-striped">
+                  <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Menu ID</th>
+                    <th>Name</th>
+					<th>Price</th>
+                    <th>Description</th>
+					<th>Image</th>
+                    <th>Action</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+				  {% for item in itemList %}
+				  <tr>
+                    <td>{{item.menu_item_id}}</td>
+					<td>{{item.menu_id}}</td>
+					<td>{{item.menu_item_name}}</td>
+					<td>{{item.menu_item_price}}</td>
+					<td>{{item.menu_item_description}}</td>
+					<td><img src="{{item.menu_item_image}}" width="100" height="100"></td>
+                    <td>
+						<div class="btn-group m-0 p-0" role="group" aria-label="Basic mixed styles example">
+						  <a href="/admin/menu_item_edit/{{item.menu_item_id}}" type="button" class="btn btn-outline-primary" role="button" data-bs-toggle="button"><i class="fas fa-edit"></i></a>
+						  <a href="/admin/menu_item_delete/{{item.menu_item_id}}" type="button" class="btn btn-outline-danger" role="button" data-bs-toggle="button"><i class="far fa-trash-alt"></i></a>
+						</div>
+					</td>
+                  </tr>
+				  {% endfor %}
+                  </tfoot>
+                </table>
+              </div>
+              <!-- /.card-body -->
+            </div>
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+        </div>
+        <!-- /.row -->
+      </div>
+      <!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock body %}

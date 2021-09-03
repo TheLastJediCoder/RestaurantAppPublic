@@ -1,0 +1,72 @@
+{% extends 'base_template.html' %}
+{% block body %}
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1>Add Menu Category</h1>
+          </div>
+        </div>
+      </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+	<section class="content">
+		<div class="container-fluid">
+			<div class="row">
+			<!-- left column -->
+				<div class="col">
+				<!-- general form elements -->
+					<div class="card card-primary">
+					<!-- form start -->
+						<form method="POST" action="{{ '/admin/menu_update' if menu else '/admin/menu_add' }}" enctype="multipart/form-data">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-sm-6">
+									<!-- text input -->
+										<div class="form-group">
+											<label>Menu Name</label>
+											<input type="text" value='{{ menu.menu_name if menu else '' }}' name='menu_name' class="form-control" placeholder="Enter ...">
+										</div>
+										<div class="form-group" style="display:none">
+											<label>Menu Id</label>
+											<input type="text" value='{{ menu.menu_id if menu else '' }}' name='menu_id' class="form-control" placeholder="Enter ...">
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="form-group">
+											<label for="exampleInputFile">Menu Image</label>
+											<div class="input-group">
+												<div class="custom-file">
+													<input type="file" name='menu_image' class="custom-file-input" id="exampleInputFile" accept="image/*">
+													<label class="custom-file-label" for="exampleInputFile">Choose file</label>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						<!-- /.card-body -->
+
+							<div class="card-footer">
+								<button type="submit" class="btn btn-primary">Submit</button>
+							</div>
+						</form>
+					</div>  
+				</div>
+			<!-- /.card -->
+			</div>
+		<!-- /.col -->
+
+		<!-- /.row -->
+		</div>
+	<!-- /.container-fluid -->
+	</section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+{% endblock body %}
