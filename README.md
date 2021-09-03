@@ -61,14 +61,23 @@ For image storage used Cloudinary API to upload images.
 # Screenshot
 
 - Login Page
+
   ![alt text](https://github.com/TheLastJediCoder/RestaurantAppPublic/blob/master/static/Login%20Page.png?raw=true)
+  
 - Add/Edit Form
+
   ![alt text](https://github.com/TheLastJediCoder/RestaurantAppPublic/blob/master/static/Form.png?raw=true)
+  
 - View Table
+
   ![alt text](https://github.com/TheLastJediCoder/RestaurantAppPublic/blob/master/static/Table.png?raw=true)
+  
 - Landing Page Deal Section
+
   ![alt text](https://github.com/TheLastJediCoder/RestaurantAppPublic/blob/master/static/Deal.png?raw=true)
+  
 - Landing Page Menu Section  
+
   ![alt text](https://github.com/TheLastJediCoder/RestaurantAppPublic/blob/master/static/Menu.png?raw=true)
 
 # Requirements
